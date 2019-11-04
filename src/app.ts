@@ -1,3 +1,5 @@
+import './bootstrap';
+
 import express from 'express';
 import cors from 'cors';
 
@@ -5,20 +7,23 @@ import cors from 'cors';
 import routes from './routes';
 
 // Database
-import './database'
+import './database';
 
 class App {
   public express: express.Application
 
   constructor() {
     this.express = express();
-
+    
+    console.log("Enviroment -> ", process.env.NODE_ENV)
+    
+    this.middlewares();
     this.routes();
   }
 
   middlewares(): void {
-    this.express.use(cors());
     this.express.use(express.json());
+    this.express.use(cors());
   }
 
   routes(): void {

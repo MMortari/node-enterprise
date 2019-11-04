@@ -1,11 +1,13 @@
+require('./../bootstrap');
+
 module.exports = {
-  dialect: 'mysql',
-  host: 'localhost',
-  username: 'root',
-  password: '',
-  database: 'node-enterprise',
+  dialect: process.env.DB_DIALECT,
+  host: process.env.DB_HOST,
+  username: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_DATABASE,
   define: {
-    // timestamps: true,
+    timestamps: false,
     underscored: true
   }
 };

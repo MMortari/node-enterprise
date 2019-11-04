@@ -6,8 +6,7 @@ module.exports = {
       country_id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        allowNull: false,
-        autoIncrement: true
+        allowNull: false
       },
       country_name: {
         type: Sequelize.STRING

@@ -1,11 +1,11 @@
 import * as Yup from 'yup';
 
 // Model
-import Employees from '../models/Employees';
+// import Employees from '../models/Employees';
 
 class EmployeesController {
 
-  async list(req, res): Promise<Employees> {
+  async list(req, res): Promise<Array<Employees>> {
     const employees: Array<Employees> = await Employees.findAll();
 
     return res.json(employees);

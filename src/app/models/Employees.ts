@@ -21,12 +21,12 @@ class Employees extends Model {
     return this;
   }
 
-  static associate(models) {
-    this.belongsTo(models.Job, {
-      foreignKey: 'job_id',
-      as: 'jobs'
-    })
-  }
+  // static associate(models) {
+  //   this.belongsTo(models.Job, {
+  //     foreignKey: 'job_id',
+  //     as: 'jobs'
+  //   })
+  // }
  
 }
 

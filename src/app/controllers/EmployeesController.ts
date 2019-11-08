@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 // Model
-// import Employees from '../models/Employees';
+import Employees from '../models/Employees';
 
 class EmployeesController {
 

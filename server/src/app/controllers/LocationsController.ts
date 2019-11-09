@@ -30,7 +30,7 @@ class LocationsController {
 
     const retorno = await Locations.destroy({
       where: {
-        country_id: id
+        location_id: id
       }
     })
 

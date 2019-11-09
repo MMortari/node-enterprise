@@ -25,7 +25,7 @@ class DepartmentsController {
 
     const retorno = await Departments.destroy({
       where: {
-        country_id: id
+        department_id: id
       }
     })
 

@@ -38,6 +38,17 @@ class EmployeesController {
 
     return res.json(insert);
   }
+  async delete(req, res) {
+    const { id } = req.params;
+
+    const retorno = await Employees.destroy({
+      where: {
+        employee_id: id
+      }
+    })
+
+    return res.json(retorno);
+  }
 
 }
 

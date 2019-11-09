@@ -19,7 +19,7 @@ class JobsController {
 
     const retorno = await Jobs.destroy({
       where: {
-        country_id: id
+        job_id: id
       }
     })
 

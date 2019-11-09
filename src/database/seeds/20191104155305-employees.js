@@ -9,10 +9,20 @@ module.exports = {
         last_name: 'Dilly',
         email: 'JDILLY',
         phone_number: '650.505.2876',
-        hire_data: new Date(),
+        hire_date: new Date(),
         job_id: 1,
-        salary: 3500,
-      }
+        salary: 11500,
+      },
+      {
+        employee_id: 2,
+        first_name: 'Matheus',
+        last_name: 'Mortar',
+        email: 'bmortari@email.com',
+        phone_number: '650.505.2876',
+        hire_date: new Date(),
+        job_id: 1,
+        salary: 3500
+      },
     ], {});
   },
 

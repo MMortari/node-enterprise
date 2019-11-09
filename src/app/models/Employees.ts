@@ -6,26 +6,30 @@ class Employees extends Model {
     super.init({
       employee_id: {
         type: Sequelize.INTEGER,
-        autoIncrement: true
+        primaryKey: true
       },
       first_name: Sequelize.STRING,
       last_name: Sequelize.STRING,
       email: Sequelize.STRING,
       phone_number: Sequelize.STRING,
-      hire_data: Sequelize.DATE,
+      hire_date: Sequelize.DATE,
       salary: Sequelize.FLOAT(15, 2),
-      comission_pct: Sequelize.FLOAT(15, 2)
-    }, { sequelize })
+      comission_pct: Sequelize.FLOAT(15, 2),
+    }, { sequelize });
 
     return this;
   }
 
-  // static associate(models) {
-  //   this.belongsTo(models.Job, {
-  //     foreignKey: 'job_id',
-  //     as: 'jobs'
-  //   })
-  // }
+  static associate(models) {
+    this.belongsTo(models.Jobs, {
+      foreignKey: 'job_id',
+      as: "job"
+    })
+    this.belongsTo(models.Employees, {
+      foreignKey: 'manager_id',
+      as: "manager"
+    })
+  }
  
 }
 

@@ -26,7 +26,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true
       },
-      hire_data: {
+      hire_date: {
         type: Sequelize.DATE,
         allowNull: false
       },

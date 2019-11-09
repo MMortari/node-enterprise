@@ -6,7 +6,12 @@ import Employees from '../models/Employees';
 class EmployeesController {
 
   async list(req, res): Promise<Array<Employees>> {
-    const employees: Array<Employees> = await Employees.findAll();
+    const employees: Array<Employees> = await Employees.findAll({
+      include: [
+        { association: 'job' },
+        { association: 'manager' },
+      ]
+    });
 
     return res.json(employees);
   }

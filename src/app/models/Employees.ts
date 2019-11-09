@@ -29,6 +29,10 @@ class Employees extends Model {
       foreignKey: 'manager_id',
       as: "manager"
     })
+    this.hasMany(models.Departments, {
+      foreignKey: 'manager_id',
+      as: 'departments'
+    })
   }
  
 }

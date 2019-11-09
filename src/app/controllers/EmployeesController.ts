@@ -20,7 +20,7 @@ class EmployeesController {
     const schema = Yup.object().shape({
       first_name: Yup.string(),
       last_name: Yup.string().required(),
-      email: Yup.string().email().required().lowercase(),
+      email: Yup.string().email().required(),
       phone_number: Yup.string(),
       hire_data: Yup.date().required(),
       job_id: Yup.number(),
@@ -31,11 +31,12 @@ class EmployeesController {
     })
 
     const valid = await schema.isValid(req.body);
-    
-    console.log("Body -> ", req.body);
-    console.log("Valid -> ", valid);
 
-    return res.json(valid);
+    if(!valid) return res.json({ msg: "Not valid" })
+
+    const insert = await Employees.create(req.body);
+
+    return res.json(insert);
   }
 
 }

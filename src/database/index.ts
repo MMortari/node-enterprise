@@ -6,6 +6,7 @@ import Countries from '../app/models/Countries';
 import Locations from '../app/models/Locations';
 import Jobs from '../app/models/Jobs';
 import Employees from '../app/models/Employees';
+import Departments from '../app/models/Departments';
 
 const connection = new Sequelize(config);
 
@@ -14,10 +15,12 @@ Countries.init(connection);
 Locations.init(connection);
 Jobs.init(connection);
 Employees.init(connection);
+Departments.init(connection);
 
 Regions.associate(connection.models);
 Countries.associate(connection.models);
 Locations.associate(connection.models);
 Employees.associate(connection.models);
+Departments.associate(connection.models);
 
 export default connection;

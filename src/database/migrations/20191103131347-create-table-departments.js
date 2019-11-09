@@ -10,7 +10,7 @@ module.exports = {
         autoIncrement: true
       },
       department_name: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       },
       manager_id: {

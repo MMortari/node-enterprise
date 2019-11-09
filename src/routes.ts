@@ -6,6 +6,7 @@ import CountriesController from './app/controllers/CountriesController';
 import EmployeesController from './app/controllers/EmployeesController';
 import LocationsController from './app/controllers/LocationsController';
 import JobsController from './app/controllers/JobsController';
+import DepartmentsController from './app/controllers/DepartmentsController';
 
 const routes = Router();
 
@@ -101,6 +102,27 @@ routes.post('/jobs', JobsController.store)
  * @param {integer} id.path.required
  */
 routes.delete('/jobs/:id', JobsController.delete)
+
+/**
+ * This will list all departments
+ * @route GET /departments
+ * @group Departments
+ */
+routes.get('/departments', DepartmentsController.list)
+/**
+ * This will store a new department
+ * @route POST /departments
+ * @group Departments
+ * @param {Object<string>} region_name.body.required
+ */
+routes.post('/departments', DepartmentsController.store)
+/**
+ * This will delete department
+ * @route DELETE /departments/{id}
+ * @group Departments
+ * @param {integer} id.path.required
+ */
+routes.delete('/departments/:id', DepartmentsController.delete)
 
 /**
  * This will all employees

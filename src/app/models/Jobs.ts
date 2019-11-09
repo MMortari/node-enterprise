@@ -1,29 +1,19 @@
 import Sequelize, { Model } from 'sequelize';
 
 class Jobs extends Model {
-
   static init(sequelize) {
-    super.init(
-      {
-        job_id: Sequelize.INTEGER,
-        job_title: Sequelize.STRING,
-        min_salary: Sequelize.FLOAT(15, 2),
-        max_salary: Sequelize.FLOAT(15, 2)
+    super.init({
+      job_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
       },
-      { sequelize }
-    )
-    super.removeAttribute('id');
+      job_title: Sequelize.STRING,
+      min_salary: Sequelize.FLOAT(15, 2),
+      max_salary: Sequelize.FLOAT(15, 2),
+    }, { sequelize });
 
     return this;
   }
-
-  static associate(models) {
-    this.hasMany(models.Employees, {
-      foreignKey: 'job_id',
-      as: 'job-employee'
-    })
-  }
- 
 }
 
 export default Jobs;

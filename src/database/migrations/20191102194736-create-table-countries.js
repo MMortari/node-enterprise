@@ -5,6 +5,7 @@ module.exports = {
     return queryInterface.createTable('countries', {
       country_id: {
         type: Sequelize.INTEGER,
+        autoIncrement: true,
         primaryKey: true,
         allowNull: false
       },

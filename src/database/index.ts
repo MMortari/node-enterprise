@@ -1,14 +1,20 @@
 import { Sequelize } from 'sequelize';
 const config = require('../config/database');
 
-import Employees from '../app/models/Employees';
+import Regions from '../app/models/Regions';
+import Countries from '../app/models/Countries';
+import Locations from '../app/models/Locations';
 import Jobs from '../app/models/Jobs';
 
 const connection = new Sequelize(config);
 
-const models = [ Employees, Jobs ];
+Regions.init(connection);
+Countries.init(connection);
+Locations.init(connection);
+Jobs.init(connection);
 
-models.map(model => model.init(connection))
-      // .map(model => model.associate && model.associate(connection.models))
+Regions.associate(connection.models);
+Countries.associate(connection.models);
+Locations.associate(connection.models);
 
 export default connection;

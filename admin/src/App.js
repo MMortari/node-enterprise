@@ -1,29 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.scss';
-import { MdDashboard } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+// Pages
+import Dashboard from './pages/Dashboard';
+
+// Components
+import AsideMenu from './components/AsideMenu';
+import HeaderMenu from './components/HeaderMenu';
+import DetailsMenu from './components/DetailsMenu';
+
+// Services
+import User from './services/User';
 
 function App() {
+  
+  useEffect(() => {
+    console.log("Main started");
+    
+    setTimeout(() => {
+      User.setUserInfo({ nome: "Matheus", id: 1 });
+      console.log("getUserInfo -> ", User.getUserInfo());
+    }, 1000)
+  }, [])
+
   return (
-    <div className="app">
-      <div className="details"></div>
-      <header>
-        <div className="user-info">
-          <p>Admin</p>
-          <div className="image"></div>
-        </div>
-      </header>
-      <aside>
-        <span>Geral</span>
-        <ul>
-          <li>
-            <MdDashboard />
-            Dashboard
-          </li>
-        </ul>
-      </aside>
-      <main></main>
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <DetailsMenu />
+        <HeaderMenu />
+        <AsideMenu />
+        <main>
+          <Switch>
+            <Route path="/" exact component={Dashboard} />
+            <Route path="/outro" exact component={Dashboard} />
+          </Switch>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 

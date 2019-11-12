@@ -1,0 +1,10 @@
+@import './../../style/colors.scss';
+
+.details {
+  background: $color-main;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

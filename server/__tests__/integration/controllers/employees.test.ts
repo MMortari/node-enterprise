@@ -1,5 +1,6 @@
 import request from 'supertest';
 import app from './../../../src/app';
+// import '@types/jest';
 
 describe('Tests for employees', () => {
 
@@ -14,7 +15,7 @@ describe('Tests for employees', () => {
     expect(employees.body[0]).toHaveProperty(['last_name']);
     expect(employees.body[0]).toHaveProperty(['email']);
     expect(employees.body[0]).toHaveProperty(['phone_number']);
-    expect(employees.body[0]).toHaveProperty(['hire_data']);
+    expect(employees.body[0]).toHaveProperty(['hire_date']);
     // expect(employees.body[0]).toHaveProperty(['job_id']);
     expect(employees.body[0]).toHaveProperty(['salary']);
     expect(employees.body[0]).toHaveProperty(['comission_pct']);
